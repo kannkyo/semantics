@@ -12,7 +12,7 @@ name = "semantics"
 packages = [{include = "semantics", from = "src"}]
 readme = "README.rst"
 repository = "https://github.com/kannkyo/semantics"
-version = "0.1.0"
+version = "0.1.1"
 
 [tool.poetry.dependencies]
 cyclonedx-bom = "^3.11.0"
