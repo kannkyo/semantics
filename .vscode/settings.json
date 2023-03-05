@@ -1,0 +1,21 @@
+{
+  "[python]": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "explorer.excludeGitIgnore": false,
+  "git-graph.repository.commits.showSignatureStatus": true,
+  "git-graph.repository.sign.commits": true,
+  "git-graph.repository.sign.tags": true,
+  "git.enableCommitSigning": true,
+  "python.formatting.provider": "autopep8",
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "files.exclude": {
+    "**/.pytest_cache": true,
+    "**/__pycache__": true,
+    "**/.venv": true
+  },
+  "esbonio.sphinx.confDir": ""
+}

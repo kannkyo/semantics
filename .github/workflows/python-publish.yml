@@ -1,0 +1,54 @@
+name: Python Publish
+
+on:
+  workflow_dispatch: # for debug
+  push:
+    branches: [main]
+    tags:
+      - v*.*.*
+
+permissions: read-all
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref_name != 'main' }}
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+
+      - name: Setup python environment
+        uses: ./.github/actions/python-setup
+
+      - name: Build package
+        id: build
+        run: |
+          poetry run sbom
+          poetry build
+          echo "package_tar=`ls dist/ | grep .tar.gz`" >> $GITHUB_OUTPUT
+          echo "package_whl=`ls dist/ | grep .whl`" >> $GITHUB_OUTPUT
+
+      - name: Upload package to artifact
+        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce
+        with:
+          name: package
+          path: dist/
+
+      - name: Upload package to release asset
+        uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          generate_release_notes: true
+          files: |
+            dist/${{ steps.build.outputs.package_tar }}
+            dist/${{ steps.build.outputs.package_whl }}
+
+      - name: Upload package to pypi
+        uses: pypa/gh-action-pypi-publish@c7f29f7adef1a245bd91520e94867e5c6eedddcc
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
