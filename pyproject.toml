@@ -4,14 +4,14 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 description = ""
-documentation = "https://github.com/kannkyo/semantics"
-homepage = "https://github.com/kannkyo/semantics"
+documentation = "https://github.com/kannkyo/seman"
+homepage = "https://github.com/kannkyo/seman"
 include = ["sbom.xml"]
 keywords = ["Semantic Versioning"]
-name = "semantics"
-packages = [{include = "semantics", from = "src"}]
+name = "seman"
+packages = [{include = "seman", from = "src"}]
 readme = "README.rst"
-repository = "https://github.com/kannkyo/semantics"
+repository = "https://github.com/kannkyo/seman"
 version = "0.1.2"
 
 [tool.poetry.dependencies]
@@ -31,4 +31,4 @@ build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core"]
 
 [tool.poetry.scripts]
-semantics = "semantics.main:main"
+seman = "seman.main:main"
