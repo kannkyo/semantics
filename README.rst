@@ -13,8 +13,5 @@ Semantics tools.
 .. image:: https://github.com/kannkyo/semantics/actions/workflows/python-ci.yml/badge.svg
     :target: https://github.com/kannkyo/semantics/actions/workflows/python-ci.yml
 
-.. image:: https://codecov.io/gh/kannkyo/semantics/branch/main/graph/badge.svg?token=ASYLVG3X9O
-    :target: https://codecov.io/gh/kannkyo/semantics
-
 .. image:: https://github.com/kannkyo/semantics/actions/workflows/scorecards.yml/badge.svg
     :target: https://github.com/kannkyo/semantics/actions/workflows/scorecards.yml
